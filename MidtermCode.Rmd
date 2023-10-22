@@ -1,0 +1,35 @@
+---
+title: "Midterm340W"
+output: html_document
+date: "2023-10-22"
+---
+
+## Packages
+
+```{r}
+library(readxl)
+library(stats)
+library(dplyr)
+```
+
+# Read in Data
+```{r}
+data <- read.csv("./Midterm Data.csv")
+```
+
+```{r}
+# Remove character columns, kwwp only numeric 
+data3 <- data %>%
+  select(latitude, longitude, depth, mag, nst, gap, dmin, rms, magNst)
+```
+
+# Data Expolration
+```{r}
+cor(data$mag, data$longitude)
+cor(data$latitude, data$gap)
+cor(data$depth, data$mag)
+cor(data, method = "pearson")
+
+cor(data3)
+```
+

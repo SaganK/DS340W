@@ -10,15 +10,16 @@ date: "2023-10-22"
 library(readxl)
 library(stats)
 library(dplyr)
+library(mosaic)
 ```
 
 # Read in Data
 ```{r}
-data <- read.csv("./Midterm Data.csv")
+data <- read.csv("./Midterm Data 2.csv")
 ```
 
 ```{r}
-# Remove character columns, kwwp only numeric 
+# Remove character columns, keep only numeric 
 data3 <- data %>%
   select(latitude, longitude, depth, mag, nst, gap, dmin, rms, magNst)
 ```
@@ -31,5 +32,14 @@ cor(data$depth, data$mag)
 cor(data, method = "pearson")
 
 cor(data3)
+```
+```{r}
+# Visualizations
+hist(data$mag, main = "Histogram of Magnitudes", xlab = "Magnitude", col = "Dark Green")
+```
+```{r}
+favstats(data$mag)
+favstats(data$latitude)
+favstats(data$longitude)
 ```
 

@@ -55,7 +55,7 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer=Adam(lr=0.001), metrics=['MSE'])
 
 # Train the model
-history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=150, batch_size=32)
+out = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=150, batch_size=32)
 
 # Evaluation
 test_loss, test_accuracy = model.evaluate(X_test, y_test)

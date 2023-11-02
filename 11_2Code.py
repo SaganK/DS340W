@@ -16,18 +16,20 @@ data = pd.read_excel('Cyprus_nM=50,dtp=15.xlsx')
 ## Data Processing Steps
 
 # Shuffle Data
-shuffled_data = data.sample(frac=1, random_state=42) 
+shuffled_data = data.sample(frac=1, random_state=57) 
 
 # Reset the index to avoid any issues with the shuffled data
 shuffled_data.reset_index(drop=True, inplace=True)
 
+data = shuffled_data
 
-column_to_bin = 'Actual Mag'  
+
+column = 'Actual Mag'  
 bin_edges = [0, 3.0, 5.0, 6.0, 10.0]  
 
 bin_labels = ['Small', 'Medium', 'Large', 'Catastrophic']
 
-data['Binned_Column'] = pd.cut(data[column_to_bin], bins=bin_edges, labels=bin_labels)
+data['Binned_Column'] = pd.cut(data[column], bins=bin_edges, labels=bin_labels)
 
 
 # Split data into features (X) and labels (y)
